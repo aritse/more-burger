@@ -1,0 +1,26 @@
+{
+  "name": "fullstacksequelizetemplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rufasa85/fullstacksequelizetemplate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rufasa85/fullstacksequelizetemplate/issues"
+  },
+  "homepage": "https://github.com/Rufasa85/fullstacksequelizetemplate#readme"
+}
