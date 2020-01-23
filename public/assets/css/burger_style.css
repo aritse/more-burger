@@ -1,0 +1,29 @@
+body {
+  background-color: salmon;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+}
+
+table {
+  margin: auto;
+}
+
+th,
+td {
+  width: 50%;
+}
+
+img {
+  margin: 50px;
+}
+
+body > table > tbody > tr:nth-child(2) {
+  text-align: left;
+}
+
+#not-devoured {
+  position: relative;
+}

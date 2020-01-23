@@ -2,7 +2,7 @@ const db = require("../models");
 const router = require("express").Router();
 
 router.get("/", (req, res) => {
-  db.Customer.findAll({}).then(dbCustomers => res.json(dbCustomers));
+  db.Customer.findAll().then(dbCustomers => res.json(dbCustomers));
 });
 
 router.post("/", (req, res) => {

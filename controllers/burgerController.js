@@ -1,23 +1,34 @@
-const express = require("express");
 const db = require("../models");
-const router = express.Router();
+const router = require("express").Router();
 
-router.get("/", function(req, res) {
-  db.Burger.findAll().then(function(dbBurgers) {
-    res.render("index", { burgers: dbBurgers });
-  });
+router.get("/", (req, res) => {
+  db.Burger.findAll().then(dbBurgers => res.json(dbBurgers));
 });
 
-router.get("/withcustomer", function(req, res) {
-  db.Burger.findAll({ include: [db.Customer] }).then(function(dbBurgers) {
-    res.json(dbBurgers);
-  });
+router.post("/", (req, res) => {
+  db.Burger.create(req.body).then(dbBurger => res.json(dbBurger));
 });
 
-router.post("/", function(req, res) {
-  db.Burger.create(req.body).then(function(dbBurger) {
-    res.json(dbBurger);
-  });
+router.get("/withcustomer", (req, res) => {
+  db.Burger.findAll({
+    include: [db.Customer]
+  }).then(dbBurgers => res.json(dbBurgers));
+});
+
+router.put("/:id", (req, res) => {
+  db.Burger.update(req.body, {
+    where: {
+      id: req.params.id
+    }
+  }).then(dbBurger => res.json(dbBurger));
+});
+
+router.delete("/:id", (req, res) => {
+  db.Burger.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then(dbBurger => res.json(dbBurger));
 });
 
 module.exports = router;
