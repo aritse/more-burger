@@ -1,22 +1,46 @@
-$(function() {
-  $(".devour-btn").click(function() {
-    const id = $(this).data("id");
-    $.ajax("/api/burger/" + id, {
-      method: "PUT",
-      data: { devoured: 1 }
+$(document).ready(() => {
+  $("#add-burger-form").submit(event => {
+    event.preventDefault();
+    const burgerName = $("#burgerName")
+      .val()
+      .trim();
+    $.ajax("/burger", {
+      method: "post",
+      data: { burgerName }
     })
       .then(() => location.reload())
-      .catch(err => console.log(err));
+      .catch(error => console.log(error));
   });
 
-  $("#add-form").submit(function(event) {
-    event.preventDefault();
-    const burgerName = { burger_name: $("#burger-name").val() };
-    console.log("burgerName", burgerName);
+  $(".devour-button").click(function() {
+    const burgerId = $(this).data("id");
+    const customerId = $("#customer-select option:selected").data("id");
 
-    $.ajax("/api/burger/", {
-      method: "POST",
-      data: burgerName
+    if (customerId) {
+      $.ajax("/burger/" + burgerId, {
+        method: "PUT",
+        data: { devoured: 1, CustomerId: customerId }
+      })
+        .then(() => location.reload())
+        .catch(error => console.log(error));
+    } else {
+      alert("Who is eating me?");
+    }
+  });
+
+  $(".delete-btn").click(function() {
+    const burgerId = $(this).data("id");
+    $.ajax("/burger/" + burgerId, {
+      method: "DELETE"
+    })
+      .then(() => location.reload())
+      .catch(error => console.log(error));
+  });
+
+  $("#customerSelect").change(() => {
+    const id = $("#customer-select option:selected").data("id");
+    $.ajax("/burger/" + id, {
+      method: "GET"
     })
       .then(() => location.reload())
       .catch(err => console.log(err));

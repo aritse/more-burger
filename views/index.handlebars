@@ -1,49 +1,43 @@
+<select id="customer-select">
+    <option>Customers</option>
+    {{#each customers}}
+    <option data-id="{{dataValues.id}}">{{dataValues.name}}</option>
+    {{/each}}
+</select>
+
 <table>
     <tr>
         <th>
-            <h2>Burgers</h2>
+            Available
         </th>
         <th>
-            <h2>Devoured</h2>
+            Devoured
         </th>
     </tr>
     <tr>
         <td>
-            <div id="not-devoured">
-                <ul>
-                    {{#each burgers}}
-                    {{#unless devoured}}
-                    <li>
-                        <p>
-                            {{burgerName}}
-                            <button class="devour-btn" data-id="{{id}}">Devour</button>
-                        </p>
-                    </li>
-                    {{/unless}}
-                    {{/each}}
-                </ul>
-            </div>
+            <ul>
+                {{#each burgers}}
+                {{#unless dataValues.devoured}}
+                <li>
+                    {{dataValues.burgerName}}
+                    <button class="devour-button" data-id="{{dataValues.id}}">Devour</button>
+                </li>
+                {{/unless}}
+                {{/each}}
+            </ul>
         </td>
         <td>
-            <div id="devoured">
-                <ul>
-                    {{#each burgers}}
-                    {{#if devoured}}
-                    <li>
-                        <p>
-                            {{burgerName}}
-                        </p>
-                    </li>
-                    {{/if}}
-                    {{/each}}
-                </ul>
-            </div>
+            <ul>
+                {{#each burgers}}
+                {{#if dataValues.devoured}}
+                <li>
+                    {{dataValues.burgerName}}
+                    <button class="delete-btn" data-id="{{dataValues.id}}">Delete</button>
+                </li>
+                {{/if}}
+                {{/each}}
+            </ul>
         </td>
     </tr>
 </table>
-
-
-<form id="add-form" action="">
-    <input id="burger-name" type="text">
-    <button>Add</button>
-</form>
