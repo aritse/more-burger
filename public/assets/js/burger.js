@@ -37,12 +37,11 @@ $(document).ready(() => {
       .catch(error => console.log(error));
   });
 
-  $("#customerSelect").change(() => {
-    const id = $("#customer-select option:selected").data("id");
-    $.ajax("/burger/" + id, {
-      method: "GET"
-    })
-      .then(() => location.reload())
-      .catch(err => console.log(err));
+  $("#customer-select").change(function() {
+    const customerId = $("#customer-select option:selected").data("id");
+    $("#devoured")
+      .children()
+      .css("display", "none");
+    $(`#devoured>li[data-id=${customerId}]`).css("display", "");
   });
 });

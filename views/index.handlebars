@@ -28,10 +28,10 @@
             </ul>
         </td>
         <td>
-            <ul>
+            <ul id="devoured">
                 {{#each burgers}}
                 {{#if dataValues.devoured}}
-                <li>
+                <li data-id="{{dataValues.CustomerId}}">
                     {{dataValues.burgerName}}
                     <button class="delete-btn" data-id="{{dataValues.id}}">Delete</button>
                 </li>

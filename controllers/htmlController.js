@@ -3,7 +3,9 @@ const db = require("../models");
 
 router.get("/", (req, res) => {
   db.Customer.findAll().then(customers => {
-    db.Burger.findAll().then(burgers => res.render("index", { customers, burgers }));
+    db.Burger.findAll({
+      include: [db.Customer]
+    }).then(burgers => res.render("index", { customers, burgers }));
   });
 });
 
