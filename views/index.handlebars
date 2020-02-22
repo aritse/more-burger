@@ -30,13 +30,13 @@
                         <input class="form-control" id="customerName" type="text" placeholder="Monster Name" />
                         <button class="form-control btn btn-danger btn-lg mt-1">Add a Monster</button>
                     </form>
+                    <select id="customer-select">
+                        <option>Select a Monster</option>
+                        {{#each customers}}
+                        <option data-id="{{dataValues.id}}">{{dataValues.name}}</option>
+                        {{/each}}
+                    </select>
                 </div>
-                <select id="customer-select">
-                    <option>Select a Monster</option>
-                    {{#each customers}}
-                    <option data-id="{{dataValues.id}}">{{dataValues.name}}</option>
-                    {{/each}}
-                </select>
             </div>
         </div>
         <div class="col-sm jumbotron text-light" style="background-color: #704e42;">

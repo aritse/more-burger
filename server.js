@@ -16,8 +16,6 @@ app.set("view engine", "handlebars");
 const routes = require("./routes");
 app.use(routes);
 
-// app.listen(PORT, () => console.log(`express app listening on ${PORT}`));
-// toggle if models change
 require("./models")
   .sequelize.sync()
   .then(() => app.listen(PORT, () => console.log(`express app listening on ${PORT}`)));
