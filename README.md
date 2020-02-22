@@ -8,4 +8,4 @@ This is a burger app that I am creating to learn Sequelize.
 
 * Handlebars are used to generate dynamic content from database and the Bootstrap CSS framework to style the page.
 
-
+![Burger Screenshot](screenshot.PNG)
