@@ -1,5 +1,5 @@
 body {
-  background-color: salmon;
+  background-color: #cc8133;
   text-align: center;
   padding-top: 3rem;
 }
@@ -7,8 +7,4 @@ body {
 img {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-
-#customer-select {
-  margin-top: 1rem;
 }

@@ -52,9 +52,19 @@ $(document).ready(() => {
 
   $("#customer-select").change(function() {
     const customerId = $("#customer-select option:selected").data("id");
-    $("#devoured")
-      .children()
-      .css("display", "none");
-    $(`#devoured>li[data-id=${customerId}]`).css("display", "");
+    if (customerId) {
+      $("#devoured")
+        .children()
+        .css("display", "none")
+        .removeClass();
+      $(`#devoured>li[data-id=${customerId}]`)
+        .css("display", "")
+        .addClass("list-group-item d-flex justify-content-between text-dark");
+    } else {
+      $("#devoured")
+        .children()
+        .css("display", "")
+        .addClass("list-group-item d-flex justify-content-between text-dark");
+    }
   });
 });
