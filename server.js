@@ -17,5 +17,5 @@ const routes = require("./routes");
 app.use(routes);
 
 require("./models")
-  .sequelize.sync()
+  .sequelize.sync({ force: false })
   .then(() => app.listen(PORT, () => console.log(`express app listening on ${PORT}`)));
