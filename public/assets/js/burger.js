@@ -1,4 +1,17 @@
 $(document).ready(() => {
+  $("#add-customer-form").submit(event => {
+    event.preventDefault();
+    const customerName = $("#customerName")
+      .val()
+      .trim();
+    $.ajax("/customer", {
+      method: "post",
+      data: { name: customerName }
+    })
+      .then(() => location.reload())
+      .catch(error => console.log(error));
+  });
+
   $("#add-burger-form").submit(event => {
     event.preventDefault();
     const burgerName = $("#burgerName")
