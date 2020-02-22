@@ -1,33 +1,36 @@
-<select id="customer-select">
-    <option>Customers</option>
-    {{#each customers}}
-    <option data-id="{{dataValues.id}}">{{dataValues.name}}</option>
-    {{/each}}
-</select>
-
-<table>
-    <tr>
-        <th>
-            Available
-        </th>
-        <th>
-            Devoured
-        </th>
-    </tr>
-    <tr>
-        <td>
+<div class="container">
+    <div class="row">
+        <div class="col-sm jumbotron">
+            <h3>Available</h3>
             <ul>
                 {{#each burgers}}
                 {{#unless dataValues.devoured}}
-                <li>
+                <li class="d-flex">
                     {{dataValues.burgerName}}
                     <button class="devour-button" data-id="{{dataValues.id}}">Devour</button>
                 </li>
                 {{/unless}}
                 {{/each}}
             </ul>
-        </td>
-        <td>
+        </div>
+        <div class="col-sm">
+            <h1>Burger</h1>
+            <img src="/assets/img/burger.png" alt="burger">
+
+            <form class="form-group" id="add-burger-form">
+                <input id="burgerName" type="text" placeholder="burger name" />
+                <button>Add</button>
+            </form>
+
+            <select id="customer-select">
+                <option>Customers</option>
+                {{#each customers}}
+                <option data-id="{{dataValues.id}}">{{dataValues.name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="col-sm jumbotron">
+            <h3>Devoured</h3>
             <ul id="devoured">
                 {{#each burgers}}
                 {{#if dataValues.devoured}}
@@ -38,6 +41,6 @@
                 {{/if}}
                 {{/each}}
             </ul>
-        </td>
-    </tr>
-</table>
+        </div>
+    </div>
+</div>
