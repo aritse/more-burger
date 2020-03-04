@@ -7,7 +7,7 @@ This is a burger app that I am creating to practice Sequelize. This app can be u
 * Customer model is associated to the burger model. The association is such that a customer has many burgers and a burger belongs to one customer. The app logs the name of customer along with the burgers that they ate.
 
 ### Tools and Concepts Covered
-* Heroku to deploy the app
+* Heroku to deploy the app at https://moreburger.herokuapp.com/
 * MySQL to store data
 * Sequelize Object Relational Mapping (ORM) to create models
 * Model View Controller (MVC) paradigm to modulize the app
